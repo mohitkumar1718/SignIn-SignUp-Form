@@ -4,24 +4,25 @@ import React, { useState } from 'react'
 const Signup = () => {
     
   const [isSignin,setisSignin]=useState(true);
-  const Toggeler=()=>{
+  const toggeler=()=>{
+    console.log(isSignin);
   return (setisSignin(!isSignin));
 } 
 
 
 
   return (
-    <div>
-       <img className='absolute h-full w-full '  src="https://img.freepik.com/free-photo/psychedelic-paper-shapes-with-copy-space_23-2149378246.jpg?w=1060&t=st=1705245830~exp=1705246430~hmac=022462e81c6bcee3e5c28f3051ac41e7848edb85158ad965cf4bb817d8f26969" alt="background2" />
-       <form onSubmit={(e)=>e.preventDefault()}>
+    <div >
+       <img className='absolute h-full w-full '  src="https://assets.nflxext.com/ffe/siteui/vlv3/9db4a880-3034-4e98-bdea-5d983e86bf52/b5953637-091d-4e02-9754-2bfadc8a8f7c/IN-en-20230925-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="background2" />
+       <form className='' onSubmit={(e)=>e.preventDefault()}>
+     <div className='absolute w-3/12 bg-black my-36 text-white mx-auto  left-0 right-0 p-5 rounded-lg bg-opacity-80'>
 
-     <div className='absolute w-4/12 bg-black  text-white mx-auto left-0 right-0 my-48 p-4 rounded-lg bg-opacity-80'>
-
-     <h1 className='text-4xl z-10 p-2 my-4'>Sign in</h1>
+     <h1 className='text-4xl z-10 p-2 my-4'>{isSignin? 'Sign up':'Sign in'}</h1>
+     {isSignin&& <input className='w-full p-3 my-4 bg-gray-700 rounded-lg' type="text" placeholder='Full Name' />}
      <input className='w-full p-3 my-4 bg-gray-700 rounded-lg' type="email" placeholder='Email Address' />
      <input className='w-full p-3 my-4 bg-gray-700 rounded-lg'  type="password" placeholder='Password' />
      <button className='w-full p-3 my-4 bg-red-800 rounded-lg'>Submit</button>
-     <p className='my-4 cursor-pointer'  onClick={()=>{Toggeler()}}>New member? sign up here</p>
+     <p className='my-4 cursor-pointer'  onClick={()=>{toggeler()}}>{ isSignin? 'Already a member? sign in':'  New member? sign up here'}</p>
 
      </div>
        </form>
